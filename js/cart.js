@@ -6,7 +6,7 @@ productoContenedor.addEventListener('click', (e) => {
     if (e.target.classList.contains('agregar')) {
         validarProductoRepetido(e.target.id);
         Toastify({
-            text: `Se agrego un producto ${e.target.cantidad}!`,
+            text: `Se agrego un producto al carrito!`,
             // position: 'under',
             duration: 3000,
             gravity: 'bottom',

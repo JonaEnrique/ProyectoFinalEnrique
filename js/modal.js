@@ -19,11 +19,11 @@ modalCarrito.addEventListener('click', (e) => {
     e.stopPropagation();
     if (e.target.classList.contains('boton-eliminar')) {
         Swal.fire({
-            title: 'Estás seguro?',
-            text: 'Va a eliminar un producto!',
+            title: '¿Estás seguro de eliminar el producto?',
+            text: 'Vas a eliminar un producto con sus cantidades!',
             icon: 'warnig',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#2c88d9',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Eliminar',
             cancelButtonText: 'Cancelar'
@@ -34,7 +34,7 @@ modalCarrito.addEventListener('click', (e) => {
                 Swal.fire(
                     'Eliminado!',
                     'El producto ha sido eliminado!',
-                    'success'
+                    'success',
                 )
             }
         })
