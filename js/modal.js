@@ -21,7 +21,7 @@ modalCarrito.addEventListener('click', (e) => {
         Swal.fire({
             title: '¿Estás seguro de eliminar el producto?',
             text: 'Vas a eliminar un producto con sus cantidades!',
-            icon: 'warnig',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#2c88d9',
             cancelButtonColor: '#d33',
@@ -49,7 +49,7 @@ modalCarrito.addEventListener('click', (e) => {
             Swal.fire({
                 title: '¿Estás seguro que desea vaciar el carrito?',
                 text: 'Va a eliminar todos sus productos!',
-                icon: 'warnig',
+                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#2c88d9',
                 cancelButtonColor: '#d33',
