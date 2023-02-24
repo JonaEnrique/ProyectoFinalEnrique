@@ -40,3 +40,38 @@ modalCarrito.addEventListener('click', (e) => {
         })
     }
 })
+
+modalCarrito.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (e.target.classList.contains('boton-vaciar-carrito')) {
+        if(carrito.length != 0) // El carrito está vacio?
+        {
+            Swal.fire({
+                title: '¿Estás seguro que desea vaciar el carrito?',
+                text: 'Va a eliminar todos sus productos!',
+                icon: 'warnig',
+                showCancelButton: true,
+                confirmButtonColor: '#2c88d9',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if(result.isConfirmed) {
+                        vaciarCarrito();
+                        Swal.fire(
+                            'Eliminados!',
+                            'Los productos han sido eliminados con éxito!',
+                            'success',
+                        )
+                }
+            })
+        } else { // El carrito se encuentra vacio
+            Swal.fire(
+                'Oops...',
+                'El carrito ya se encuentra vacio!',
+                'error',
+            )
+        }
+        
+    }
+})

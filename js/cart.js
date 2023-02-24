@@ -1,6 +1,6 @@
 let carrito = [];
 
-const productoContenedor = document.getElementById('producto-contenedor')
+const productoContenedor = document.getElementById('producto-contenedor');
 
 productoContenedor.addEventListener('click', (e) => {
     if (e.target.classList.contains('agregar')) {
@@ -63,46 +63,55 @@ const pintarTotalesCarrito = (totalCantidad, totalCompra) => {
 };
 
 const pintarCarrito = (carrito) => {
-    const contenedor = document.getElementById('carrito-contenedor')
+    const contenedor = document.getElementById('carrito-contenedor');
 
     contenedor.innerHTML = ''
 
     carrito.forEach(producto => {
-        const div = document.createElement('div')
-        div.classList.add('productoEnCarrito')
+        const div = document.createElement('div');
+        div.classList.add('productoEnCarrito');
         div.innerHTML = `
             <p>${producto.nombre}</p>
             <p>Precio: ${producto.precio}</p>
             <p id=cantidad${producto.id}>Cantidad: ${producto.cantidad}</p>
             <button class="btn waves-effect waves-ligth boton-eliminar" value="${producto.id}">X</button>
-        `
-        contenedor.appendChild(div)
+        `;
+        contenedor.appendChild(div);
     });
 };
 
 const eliminarProductosCarrito = (productoId) => {
-    const productoIndex = carrito.findIndex(producto => producto.id == productoId)
-    carrito.splice(productoIndex, 1)
-    pintarCarrito(carrito)
-    actualizarTotalesCarrito(carrito)
+    const productoIndex = carrito.findIndex(producto => producto.id == productoId);
+    carrito.splice(productoIndex, 1);
+    pintarCarrito(carrito);
+    actualizarTotalesCarrito(carrito);
+};
+
+const vaciarCarrito = () => {
+    carrito = []; // Vaciamos el array que contiene a los productos
+    localStorage.clear('carrito'); // Vaciamos el storage
+
+    /* Actualizamos */
+    pintarCarrito(carrito);
+    actualizarTotalesCarrito(carrito);
 };
 
 const guardarCarritoStorage = (carrito) => {
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 };
 
 const obtenerCarritoStorage = () => {
-    const carritoStorage = JSON.parse(localStorage.getItem('carrito'))
-    return carritoStorage
+    const carritoStorage = JSON.parse(localStorage.getItem('carrito'));
+    return carritoStorage;
 };
 
 
 const cargarCarrito = () => {
     if (localStorage.getItem('carrito')) {
-        carrito = obtenerCarritoStorage()
-        pintarCarrito(carrito)
-        actualizarTotalesCarrito(carrito)
+        carrito = obtenerCarritoStorage();
+        pintarCarrito(carrito);
+        actualizarTotalesCarrito(carrito);
     }
 };
 
-cargarCarrito()
+cargarCarrito();

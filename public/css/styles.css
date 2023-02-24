@@ -187,3 +187,22 @@ select {
 .logo h1 {
   padding-top: 19px;
 }
+
+.vaciarCarrito{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.vaciarCarrito p {
+  padding-top: 5px;
+}
+
+.btn-p {
+  background-color: #2c88d9;
+  color: white;
+}
+
+.colorB {
+  background-color: #2c88d9 !important;
+}
